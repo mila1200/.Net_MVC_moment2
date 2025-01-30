@@ -19,5 +19,5 @@ public class CurrencyConverterModel
     [Display(Name = "Till:")]
     public required string ToCurrency { get; set; }
 
-    public double ConvertedAmount { get; set; }
+    public double? ConvertedAmount { get; set; }
 }

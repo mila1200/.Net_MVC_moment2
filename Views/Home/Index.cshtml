@@ -1,1 +1,23 @@
-<h2>Startsidan</h2>
+@model Moment2Mvc.Models.CurrencyConverterModel
+<h2>Valutakonverterare</h2>
+
+<form method="post">
+    <label asp-for="Amount">Summa:</label>
+    <input type="number" asp-for="Amount">
+    <br>
+    <label asp-for="FromCurrency">Från:</label>
+    <select asp-for="FromCurrency">
+        <option value="SEK">SEK</option>
+        <option value="EUR">GBP</option>
+        <option value="USD">USD</option>
+    </select>
+    <br>
+    <label asp-for="ToCurrency">Till:</label>
+    <select asp-for="ToCurrency">
+        <option value="SEK">SEK</option>
+        <option value="EUR">GBP</option>
+        <option value="USD">USD</option>
+    </select>
+    <br>
+    <input type="submit" value="Konvertera">
+</form>

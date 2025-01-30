@@ -15,6 +15,7 @@ public class HomeController : Controller
     [HttpGet("/resultat")]
     public IActionResult Result()
     {
+        //hämtar innehåll och skriver ut det till vyn
         //läs in input
         string jsonStr = System.IO.File.ReadAllText("currency.json");
 
@@ -57,6 +58,7 @@ public class HomeController : Controller
 
             ModelState.Clear();
 
+            //redirectar till /result i controllern Home
             return RedirectToAction("Result", "Home");
         }
         return View();

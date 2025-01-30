@@ -1,2 +1,20 @@
 @model List<Moment2Mvc.Models.CurrencyConverterModel>
 <h2>Resultat</h2>
+
+<table>
+    <tr>
+        <th>Summa:</th>
+        <th>Från:</th>
+        <th>Till:</th>
+        <th>Resultat:</th>
+    </tr>
+    @foreach (var convert in Model)
+    {
+        <tr>
+            <td>@convert.Amount</td>
+            <td>@convert.FromCurrency</td>
+            <td>@convert.ToCurrency</td>
+            <td>@convert.ConvertedAmount @convert.ToCurrency</td>
+        </tr>
+    }
+</table>

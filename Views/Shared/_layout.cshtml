@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <title>Valutakonverterare | @ViewData=["Title"]</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<body>
+    <header>
+        <div>
+            <h1>Valutakonverterare</h1>
+            <nav>
+                <ul>
+                    <li><a asp-asp-controller="Home" asp-action="Index">Hem</a></li>
+                    <li><a asp-asp-controller="Home" asp-action="Result">Resultat</a></li>
+                    <li><a asp-asp-controller="Home" asp-action="History">Historik</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div>
+        <main>
+            <!--Skriver ut anpassat innehåll-->
+            @RenderBody()
+        </main>
+        <footer>
+            <p>Av: Mikael Larsson, Mittuniversitetet 2025</p>
+        </footer>
+    </div>
+
+
+</body>

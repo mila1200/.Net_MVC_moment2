@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 using Moment2Mvc.Models;
 
@@ -38,6 +39,9 @@ public class HomeController : Controller
         if (ModelState.IsValid)
         {
             //korrekt ifyllt
+
+            model.ConvertedAmount = model.Amount * model.ExchangeRate;
+            
             //läs in input
             string jsonStr = System.IO.File.ReadAllText("currency.json");
 

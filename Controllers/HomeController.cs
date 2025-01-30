@@ -25,12 +25,11 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Result(CurrencyConverterModel model) {
+    public IActionResult Index(CurrencyConverterModel model) {
         //validera
         if(ModelState.IsValid) {
-
-        } else {
-            //fel
+            //korrekt ifyllt
+            string jsonStr = System.IO.File.ReadAllText("")
         }
         return View();
     }

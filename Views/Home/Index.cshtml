@@ -2,17 +2,18 @@
 <h2>Valutakonverterare</h2>
 
 <form method="post">
-    <label asp-for="Amount">Summa:</label>
+    <label asp-for="Amount"></label>
     <input type="number" asp-for="Amount">
+    <span asp-validation-for="Amount"></span>
     <br>
-    <label asp-for="FromCurrency">Från:</label>
+    <label asp-for="FromCurrency"></label>
     <select asp-for="FromCurrency">
         <option value="SEK">SEK</option>
         <option value="EUR">GBP</option>
         <option value="USD">USD</option>
     </select>
     <br>
-    <label asp-for="ToCurrency">Till:</label>
+    <label asp-for="ToCurrency"></label>
     <select asp-for="ToCurrency">
         <option value="SEK">SEK</option>
         <option value="EUR">GBP</option>

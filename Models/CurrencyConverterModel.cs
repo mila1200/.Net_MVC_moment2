@@ -25,7 +25,7 @@ public class CurrencyConverterModel
     [Required(ErrorMessage = "Du måste fylla i växelkurs för att konvertera.")]
     //inget negativt värde
     [Range(0.01, double.MaxValue, ErrorMessage ="Växelkursen kan inte vara under 0.")]
-    [Display(Name = "Växelkurs")]
+    [Display(Name = "Växelkurs:")]
     public double? ExchangeRate { get; set; }
 
     public double? ConvertedAmount { get; set; }

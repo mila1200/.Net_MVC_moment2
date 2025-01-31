@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/styles.css">
     <title>Valutakonverterare | @ViewData["Title"]</title>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
 
 <body>
     <header>
-        <div>
+        <div class="headerContainer">
             <h1>Valutakonverterare</h1>
             <nav>
                 <ul>
@@ -24,16 +27,13 @@
             </nav>
         </div>
     </header>
-
-    <div>
+    <div class="mainContainer">
         <main>
             <!--Skriver ut anpassat innehåll-->
             @RenderBody()
         </main>
-        <footer>
-            <p>Av: Mikael Larsson, Mittuniversitetet 2025</p>
-        </footer>
     </div>
-
-
+    <footer>
+        <p>Av: Mikael Larsson, Mittuniversitetet 2025</p>
+    </footer>
 </body>

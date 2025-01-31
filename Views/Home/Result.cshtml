@@ -1,13 +1,19 @@
 @model Moment2Mvc.Models.CurrencyConverterModel
 
+<div class="resultContainer">
 
-@if (Model != null)
+    @if (Model != null)
     {
-    <h2>Resultat</h2>
-    <p>Från: @Model.FromCurrency</p>
-    <p>Till: @Model.ToCurrency</p>
-    <p>Belopp: @Model.Amount</p>
-    <p>Växelkurs: @Model.ExchangeRate</p>
-    <p>Omvandlat belopp: @Model.ConvertedAmount</p>
-    
+        <h2>Resultat</h2>
+        <p><strong>Från:</strong> @Model.FromCurrency</p>
+        <p><strong>Till:</strong> @Model.ToCurrency</p>
+        <p><strong>Belopp:</strong> @Model.Amount</p>
+        <p><strong>Växelkurs:</strong> @Model.ExchangeRate</p>
+        <p><strong>Omvandlat belopp:</strong> @Model.ConvertedAmount</p>
     }
+    else
+    {
+        <p class="nothingToShow">Det finns inget att visa...</p>
+    }
+
+</div>

@@ -1,22 +1,24 @@
 @model List<Moment2Mvc.Models.CurrencyConverterModel>
-<h2>Historik</h2>
 
-<table>
-    <tr>
-        <th>Belopp:</th>
-        <th>Från:</th>
-        <th>Till:</th>
-        <th>Växelkurs:</th>
-        <th>Resultat:</th>
-    </tr>
-    @foreach (var convert in Model)
-    {
+<div class="historyContainer">
+    <h2>Historik</h2>
+    <table>
         <tr>
-            <td>@convert.Amount</td>
-            <td>@convert.FromCurrency</td>
-            <td>@convert.ToCurrency</td>
-            <td>@convert.ExchangeRate</td>
-            <td>@convert.ConvertedAmount @convert.ToCurrency</td>
+            <th>Belopp:</th>
+            <th>Från:</th>
+            <th>Till:</th>
+            <th>Växelkurs:</th>
+            <th>Resultat:</th>
         </tr>
-    }
-</table>
+        @foreach (var convert in Model)
+        {
+            <tr>
+                <td>@convert.Amount</td>
+                <td>@convert.FromCurrency</td>
+                <td>@convert.ToCurrency</td>
+                <td>@convert.ExchangeRate</td>
+                <td>@convert.ConvertedAmount @convert.ToCurrency</td>
+            </tr>
+        }
+    </table>
+</div>

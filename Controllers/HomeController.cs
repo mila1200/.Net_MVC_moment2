@@ -8,14 +8,37 @@ namespace Moment2Mvc.Controllers;
 public class HomeController : Controller
 {
     public IActionResult Index()
+    {   
+        //titel
+        @ViewData["Title"] = "Start";
+        @ViewBag.Message = "Välj en valuta att konvertera";
+
+        return View();
+    }
+
+    [HttpGet("/resultat")]
+    public IActionResult Result()
     {
+        //titel
+        @ViewData["Title"] = "Resultat";
+
+        var json = HttpContext.Session.GetString("latestResult");
+        if (!string.IsNullOrEmpty(json))
+        {
+            var latestResult = JsonSerializer.Deserialize<CurrencyConverterModel>(json);
+            return View(latestResult);
+        }
+
         return View();
     }
 
     //alternativa sökvägar
-    [HttpGet("/resultat")]
-    public IActionResult Result()
+    [HttpGet("/historik")]
+    public IActionResult History()
     {
+        //titel
+        @ViewData["Title"] = "Historik";
+
         //hämtar innehåll och skriver ut det till vyn
         //läs in input
         string jsonStr = System.IO.File.ReadAllText("currency.json");
@@ -25,13 +48,6 @@ public class HomeController : Controller
         return View(currencyConversion);
     }
 
-    //alternativa sökvägar
-    [HttpGet("/historik")]
-    public IActionResult History()
-    {
-        return View();
-    }
-
     [HttpPost]
     public IActionResult Index(CurrencyConverterModel model)
     {
@@ -39,9 +55,9 @@ public class HomeController : Controller
         if (ModelState.IsValid)
         {
             //korrekt ifyllt
-
+            //beräkna växelvärde
             model.ConvertedAmount = model.Amount * model.ExchangeRate;
-            
+
             //läs in input
             string jsonStr = System.IO.File.ReadAllText("currency.json");
 
@@ -60,7 +76,11 @@ public class HomeController : Controller
                 System.IO.File.WriteAllText("currency.json", jsonStr);
             }
 
+            //rensa formulär
             ModelState.Clear();
+
+            HttpContext.Session.SetString("latestResult", JsonSerializer.Serialize(model));
+
 
             //redirectar till /result i controllern Home
             return RedirectToAction("Result", "Home");

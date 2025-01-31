@@ -1,20 +1,13 @@
-@model List<Moment2Mvc.Models.CurrencyConverterModel>
-<h2>Resultat</h2>
+@model Moment2Mvc.Models.CurrencyConverterModel
 
-<table>
-    <tr>
-        <th>Belopp:</th>
-        <th>Från:</th>
-        <th>Till:</th>
-        <th>Resultat:</th>
-    </tr>
-    @foreach (var convert in Model)
+
+@if (Model != null)
     {
-        <tr>
-            <td>@convert.Amount</td>
-            <td>@convert.FromCurrency</td>
-            <td>@convert.ToCurrency</td>
-            <td>@convert.ConvertedAmount @convert.ToCurrency</td>
-        </tr>
+    <h2>Resultat</h2>
+    <p>Från: @Model.FromCurrency</p>
+    <p>Till: @Model.ToCurrency</p>
+    <p>Belopp: @Model.Amount</p>
+    <p>Växelkurs: @Model.ExchangeRate</p>
+    <p>Omvandlat belopp: @Model.ConvertedAmount</p>
+    
     }
-</table>

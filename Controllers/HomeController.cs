@@ -22,7 +22,10 @@ public class HomeController : Controller
         //titel
         @ViewData["Title"] = "Resultat";
 
+        //hämta jsonsträngen
         var json = HttpContext.Session.GetString("latestResult");
+
+        //om det finns något, omvandla till ett objekt och skicka till vyn
         if (!string.IsNullOrEmpty(json))
         {
             var latestResult = JsonSerializer.Deserialize<CurrencyConverterModel>(json);
@@ -79,6 +82,7 @@ public class HomeController : Controller
             //rensa formulär
             ModelState.Clear();
 
+            //sparar senaste input som en json-sträng i en session
             HttpContext.Session.SetString("latestResult", JsonSerializer.Serialize(model));
 
 
